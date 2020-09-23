@@ -12,6 +12,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'fatih/vim-go'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 " Enable the list of buffers
