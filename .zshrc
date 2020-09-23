@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/dtang/.oh-my-zsh"
+export ZSH="/Users/dtang/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -41,6 +41,7 @@ ZSH_THEME="agnoster"
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
+ZSH_DISABLE_COMPFIX="true"
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
