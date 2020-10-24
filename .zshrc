@@ -2,7 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/dtang/.oh-my-zsh"
+if [ -d "/Users/dtang/" ]; then
+       	export ZSH="/Users/dtang/.oh-my-zsh"
+else
+	export ZSH="/home/dtang/.oh-my-zsh"
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,7 +103,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # # Load Antigen
-source ~/antigen.zsh
+if [ -d "/Users/dtang/" ]; then
+	source /usr/local/share/antigen/antigen.zsh
+else
+	source ~/antigen.zsh
+fi
 
 # Load Antigen configurations
 antigen init ~/.antigenrc
