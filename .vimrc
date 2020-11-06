@@ -31,4 +31,3 @@ inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
 
 " Select the complete menu item like CTRL+y would.
 inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
-inoremap <expr> <Tab> pumvisible() ? "<C-y>" :"<CR>"
