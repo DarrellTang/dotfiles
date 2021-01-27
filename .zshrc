@@ -5,7 +5,7 @@
 if [ -d "/Users/dtang/" ]; then
        	export ZSH="/Users/dtang/.oh-my-zsh"
 else
-	export ZSH="/home/dtang/.oh-my-zsh"
+	export ZSH="$HOME/.oh-my-zsh"
 fi
 
 # Set name of the theme to load --- if set to "random", it will
