@@ -12,7 +12,22 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'fatih/vim-go'
+Plug 'hashivim/vim-terraform'
+Plug 'godlygeek/tabular'
+Plug 'vim-scripts/AutoComplPop'
 call plug#end()
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
+let g:terraform_fold_sections=1
+
+set rnu nu hlsearch ignorecase incsearch smartcase fdm=syntax nofoldenable ts=4 sw=4 complete+=kspell completeopt=menuone,longest autoread
+
+autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+inoremap <expr> <C-j> pumvisible() ? "<C-n>" :"<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
+
+" Select the complete menu item like CTRL+y would.
+inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"

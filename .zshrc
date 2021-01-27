@@ -2,7 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/dtang/.oh-my-zsh"
+if [ -d "/Users/dtang/" ]; then
+       	export ZSH="/Users/dtang/.oh-my-zsh"
+else
+	export ZSH="/home/dtang/.oh-my-zsh"
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -41,8 +45,9 @@ ZSH_THEME="agnoster"
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
+ZSH_DISABLE_COMPFIX="true"
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -73,7 +78,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -98,7 +103,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # # Load Antigen
-source ~/antigen.zsh
+if [ -d "/Users/dtang/" ]; then
+	source /usr/local/share/antigen/antigen.zsh
+else
+	source ~/antigen.zsh
+fi
 
 # Load Antigen configurations
 antigen init ~/.antigenrc
