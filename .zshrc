@@ -111,3 +111,6 @@ fi
 
 # Load Antigen configurations
 antigen init ~/.antigenrc
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND="find -L"

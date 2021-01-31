@@ -15,6 +15,8 @@ Plug 'fatih/vim-go'
 Plug 'hashivim/vim-terraform'
 Plug 'godlygeek/tabular'
 Plug 'vim-scripts/AutoComplPop'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Enable the list of buffers
@@ -31,3 +33,4 @@ inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
 
 " Select the complete menu item like CTRL+y would.
 inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
+set rtp+=/usr/local/opt/fzf
