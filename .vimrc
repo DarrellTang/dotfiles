@@ -23,7 +23,7 @@ call plug#end()
 let g:airline#extensions#tabline#enabled = 1
 let g:terraform_fold_sections=1
 
-set rnu nu hlsearch ignorecase incsearch smartcase fdm=syntax nofoldenable ts=4 sw=4 complete+=kspell completeopt=menuone,longest autoread
+set rnu nu hlsearch ignorecase incsearch smartcase fdm=syntax nofoldenable ts=4 sw=4 complete+=kspell completeopt=menuone,longest autoread termguicolors
 
 
 " autocmd vimenter * NERDTree
