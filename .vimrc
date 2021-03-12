@@ -17,6 +17,7 @@ Plug 'godlygeek/tabular'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'pedrohdz/vim-yaml-folds'
 call plug#end()
 
 " Enable the list of buffers
