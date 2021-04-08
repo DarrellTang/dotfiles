@@ -18,6 +18,7 @@ Plug 'vim-scripts/AutoComplPop'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pedrohdz/vim-yaml-folds'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " Enable the list of buffers
