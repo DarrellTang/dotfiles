@@ -78,7 +78,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin
+export PATH=/Users/dtang/.chefdk/gem/ruby/2.3.0/bin:$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:/Users/dtang/go/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -102,6 +102,8 @@ export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias ll="exa --long --git --tree --level=2
 # # Load Antigen
 if [ -d "/Users/dtang/" ]; then
 	source /usr/local/share/antigen/antigen.zsh
@@ -114,3 +116,12 @@ antigen init ~/.antigenrc
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="find ."
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
+
+export GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.3.0"
+export GEM_HOME="/Users/dtang/.chefdk/gem/ruby/2.3.0"
+export GEM_PATH="/Users/dtang/.chefdk/gem/ruby/2.3.0:/opt/chefdk/embedded/lib/ruby/gems/2.3.0"
+eval "$(chef shell-init zsh)"
+eval "$(chef shell-init zsh)"
