@@ -103,7 +103,7 @@ export PATH=/Users/dtang/.chefdk/gem/ruby/2.3.0/bin:$PATH:$HOME/.pulumi/bin:/usr
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ll="exa --long --git --tree --level=2"
+alias ls="exa --long --git"
 
 # # Load Antigen
 if [ -d "/Users/dtang/" ]; then
