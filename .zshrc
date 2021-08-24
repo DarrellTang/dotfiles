@@ -104,6 +104,7 @@ export PATH=/Users/dtang/.chefdk/gem/ruby/2.3.0/bin:$PATH:$HOME/.pulumi/bin:/usr
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias ls="exa --long --git"
+alias tmux="TERM=screen-256color-bce tmux"
 
 # # Load Antigen
 if [ -d "/Users/dtang/" ]; then

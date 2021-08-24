@@ -10,7 +10,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'altercation/vim-colors-solarized'
 Plug 'fatih/vim-go'
 Plug 'hashivim/vim-terraform'
 Plug 'godlygeek/tabular'
@@ -18,6 +17,7 @@ Plug 'vim-scripts/AutoComplPop'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pedrohdz/vim-yaml-folds'
+Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 " Enable the list of buffers
