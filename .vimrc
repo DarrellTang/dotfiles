@@ -18,6 +18,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'cocopon/iceberg.vim'
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 " Enable the list of buffers
