@@ -106,6 +106,8 @@ export PATH=/Users/dtang/.chefdk/gem/ruby/2.3.0/bin:$PATH:$HOME/.pulumi/bin:/usr
 alias ls="exa --long --git"
 alias tmux="TERM=screen-256color-bce tmux"
 alias k="kubectl"
+alias kns="kubens"
+alias kc="kubectx"
 
 # # Load Antigen
 if [ -d "/Users/dtang/" ]; then
@@ -126,5 +128,6 @@ complete -o nospace -C /usr/local/bin/vault vault
 export GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.3.0"
 export GEM_HOME="/Users/dtang/.chefdk/gem/ruby/2.3.0"
 export GEM_PATH="/Users/dtang/.chefdk/gem/ruby/2.3.0:/opt/chefdk/embedded/lib/ruby/gems/2.3.0"
+export PATH="${PATH}:${HOME}/.krew/bin"
 eval "$(chef shell-init zsh)"
 eval "$(chef shell-init zsh)"
