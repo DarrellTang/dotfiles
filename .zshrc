@@ -125,9 +125,7 @@ export FZF_DEFAULT_COMMAND="find ."
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 
-export GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.3.0"
-export GEM_HOME="/Users/dtang/.chefdk/gem/ruby/2.3.0"
-export GEM_PATH="/Users/dtang/.chefdk/gem/ruby/2.3.0:/opt/chefdk/embedded/lib/ruby/gems/2.3.0"
 export PATH="${PATH}:${HOME}/.krew/bin"
+export EDITOR="nvim"
 eval "$(chef shell-init zsh)"
 eval "$(chef shell-init zsh)"
