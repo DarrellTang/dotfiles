@@ -114,6 +114,6 @@ antigen init ~/.antigenrc
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="find ."
-export KUBECONFIG=/home/dtang/kubeconfig
+export KUBECONFIG=/home/dtang/.kube/config
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 alias k=kubectl
