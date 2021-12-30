@@ -19,6 +19,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'cocopon/iceberg.vim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'easymotion/vim-easymotion'
+Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
 " Enable the list of buffers

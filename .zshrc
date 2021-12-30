@@ -108,9 +108,12 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias k="kubectl"
 alias kns="kubens"
 alias kc="kubectx"
+alias kd="kubectl describe"
+alias kg="kubectl get"
+alias helm2="docker run -it --rm -v ~/.kube/config:/root/.kube/config -v ~/.helm:/root/.helm alpine/helm:2.16.1 "
 
 # # Load Antigen
-if [ -d "/Users/dtang/" ]; then
+if [ -d "/Users/TangDa01" ]; then
 	source /usr/local/share/antigen/antigen.zsh
 else
 	source ~/antigen.zsh
@@ -127,5 +130,16 @@ complete -o nospace -C /usr/local/bin/vault vault
 
 export PATH="${PATH}:${HOME}/.krew/bin"
 export EDITOR="nvim"
-eval "$(chef shell-init zsh)"
-eval "$(chef shell-init zsh)"
+. <(flux completion zsh)
+
+#prompt_end() {
+#  if [[ -n $CURRENT_BG ]]; then
+#    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+#  else
+#    echo -n "%{%k%}"
+#  fi
+#  echo -n "\n%{%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{%f%}"
+#  CURRENT_BG=''
+#}
+#source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+#PS1='$(kube_ps1)'$PS1
