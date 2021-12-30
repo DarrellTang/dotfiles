@@ -21,6 +21,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'easymotion/vim-easymotion'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 " Enable the list of buffers
@@ -39,3 +40,4 @@ inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
 " Select the complete menu item like CTRL+y would.
 inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
 set rtp+=/usr/local/opt/fzf
+color codedark
