@@ -22,6 +22,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'easymotion/vim-easymotion'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " Enable the list of buffers
