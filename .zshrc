@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -12,7 +19,7 @@ fi
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,12 +80,12 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git kubectl colored-man-pages helm terraform golang fzf) 
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin
+export PATH=/Users/dtang/.chefdk/gem/ruby/2.3.0/bin:$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:/Users/dtang/go/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -102,18 +109,54 @@ export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias ls="exa --long --git"
+alias tmux="TERM=screen-256color-bce tmux"
+alias k="kubectl"
+alias kns="kubens"
+alias kc="kubectx"
+alias kd="kubectl describe"
+alias kg="kubectl get"
+alias helm2="docker run -it --rm -v ~/.kube/config:/root/.kube/config -v ~/.helm:/root/.helm alpine/helm:2.16.1 "
+
 # # Load Antigen
-if [ -d "/Users/dtang/" ]; then
+if [ -d "/Users/TangDa01" ]; then
 	source /usr/local/share/antigen/antigen.zsh
 else
 	source ~/antigen.zsh
 fi
 
 # Load Antigen configurations
-antigen init ~/.antigenrc
+if [ -d "/Users/TangDa01/.antigenrc" ]; then
+	antigen init ~/.antigenrc
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="find ."
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
+
+export PATH="${PATH}:${HOME}/.krew/bin"
+export EDITOR="nvim"
+. <(flux completion zsh)
+
+#prompt_end() {
+#  if [[ -n $CURRENT_BG ]]; then
+#    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+#  else
+#    echo -n "%{%k%}"
+#  fi
+#  echo -n "\n%{%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{%f%}"
+#  CURRENT_BG=''
+#}
+#source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+#PS1='$(kube_ps1)'$PS1
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 export KUBECONFIG=/home/dtang/.kube/config
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 alias k=kubectl

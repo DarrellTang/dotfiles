@@ -13,7 +13,7 @@
 import:
   - ~/dotfiles/hyper.yml
 
-# Any items in the `env` entry below will be added as
+#      # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
 env:
@@ -74,7 +74,7 @@ env:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  startup_mode: Fullscreen
 
   # Window title
   #title: Alacritty
@@ -113,7 +113,7 @@ font:
     #   - (macOS) Fira Mono for Powerline
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: monospace
+    family: "MesloLGS NF"
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -415,7 +415,7 @@ live_config_reload: true
 #working_directory: None
 
 # Send ESC (\x1b) before characters when alt is pressed.
-#alt_send_esc: true
+alt_send_esc: true
 
 mouse:
   # Click settings
@@ -429,7 +429,7 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   #hide_when_typing: false
 
-  url:
+  #url:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a
@@ -439,7 +439,7 @@ mouse:
     #
      Default:
     #   - (macOS) open
-       - (Linux/BSD) xdg-open
+    #  - (Linux/BSD) xdg-open
     #   - (Windows) explorer
     #launcher:
     #  program: xdg-open
@@ -475,8 +475,8 @@ mouse:
 # And optionally:
 #
 # - `mods` (see key bindings)
-#mouse_bindings:
-#  - { mouse: Middle, action: PasteSelection }
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
 
 # Key bindings
 #

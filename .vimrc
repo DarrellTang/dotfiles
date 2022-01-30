@@ -10,7 +10,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'altercation/vim-colors-solarized'
 Plug 'fatih/vim-go'
 Plug 'hashivim/vim-terraform'
 Plug 'godlygeek/tabular'
@@ -18,6 +17,11 @@ Plug 'vim-scripts/AutoComplPop'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pedrohdz/vim-yaml-folds'
+Plug 'cocopon/iceberg.vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'easymotion/vim-easymotion'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'tomasiser/vim-code-dark'
 Plug 'pangloss/vim-javascript'
 call plug#end()
 
@@ -26,7 +30,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:terraform_fold_sections=1
 
 set rnu nu hlsearch ignorecase incsearch smartcase fdm=syntax nofoldenable ts=4 sw=4 complete+=kspell completeopt=menuone,longest autoread
-
 
 " autocmd vimenter * NERDTree
 
@@ -38,3 +41,4 @@ inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
 " Select the complete menu item like CTRL+y would.
 inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
 set rtp+=/usr/local/opt/fzf
+color codedark
