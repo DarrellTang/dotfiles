@@ -19,7 +19,7 @@ fi
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -35,7 +35,7 @@ fi
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -85,7 +85,7 @@ plugins=(git kubectl colored-man-pages helm terraform golang fzf)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH=/Users/dtang/.chefdk/gem/ruby/2.3.0/bin:$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:/Users/dtang/go/bin
+export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:/Users/dtang/go/bin:$HOME/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -139,7 +139,6 @@ complete -o nospace -C /usr/local/bin/vault vault
 
 export PATH="${PATH}:${HOME}/.krew/bin"
 export EDITOR="nvim"
-. <(flux completion zsh)
 
 #prompt_end() {
 #  if [[ -n $CURRENT_BG ]]; then
