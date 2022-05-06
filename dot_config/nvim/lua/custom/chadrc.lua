@@ -3,9 +3,11 @@
 local M = {}
 
 M.options = {
-  relativenumber = true,
-  ignorecase = true,
-  smartcase = true,
+  user = function ()
+    vim.opt.relativenumber = true
+    vim.opt.ignorecase = true
+    vim.opt.smartcase = true
+  end
 }
 
 -- make sure you maintain the structure of `core/default_config.lua` here,
@@ -19,7 +21,7 @@ M.ui = {
 local userPlugins = require "custom.plugins" -- path to table
 
 M.plugins = {
-   install = userPlugins,
+   user = userPlugins,
 }
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event','cmd' fields)
