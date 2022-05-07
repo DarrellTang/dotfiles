@@ -15,3 +15,8 @@
     url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
     exact = true
     stripComponents = 1
+[".config/nvim/"]
+    type = "archive"
+    url = "https://github.com/NvChad/NvChad"
+    exact = true
+    stripComponents = 1
