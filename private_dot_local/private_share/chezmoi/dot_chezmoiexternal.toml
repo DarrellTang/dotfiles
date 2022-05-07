@@ -16,7 +16,6 @@
     exact = true
     stripComponents = 1
 [".config/nvim/"]
-    type = "archive"
-    url = "https://github.com/NvChad/NvChad/releases/download/v1.0/nvim.tar.gz"
+    type = "git-repo"
+    url = "https://github.com/NvChad/NvChad"
     exact = true
-    stripComponents = 1
