@@ -22,6 +22,11 @@ local userPlugins = require "custom.plugins" -- path to table
 
 M.plugins = {
    user = userPlugins,
+   options = {
+      lspconfig = {
+         setup_lspconf = "custom.lspconfig",
+      },
+   },
 }
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event','cmd' fields)
