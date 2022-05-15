@@ -7,6 +7,11 @@ M.options = {
     vim.opt.relativenumber = true
     vim.opt.ignorecase = true
     vim.opt.smartcase = true
+    vim.o.incsearch = true
+    vim.o.foldenable = false
+    vim.o.foldmethod = 'expr'
+    vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+    vim.o.autoread = true
   end
 }
 
