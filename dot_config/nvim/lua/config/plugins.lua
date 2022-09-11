@@ -41,13 +41,15 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-  use "wbthomason/packer.nvim"  -- Have packer manage itself
-  use "nvim-lua/popup.nvim"     -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim"   -- Useful lua functions used ny lots of plugins
-  use "tpope/vim-fugitive"
-  use "pedrohdz/vim-yaml-folds" 
+  use "wbthomason/packer.nvim"    -- Have packer manage itself
+  use "nvim-lua/popup.nvim"       -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"     -- Useful lua functions used ny lots of plugins
+  use "tpope/vim-fugitive"        -- Git plugin
+  use "pedrohdz/vim-yaml-folds"   -- Yaml folding
   use "folke/which-key.nvim" 
-  use "folke/tokyonight.nvim"
+  use "folke/tokyonight.nvim"     -- theme
+  use "easymotion/vim-easymotion" -- faster motions
+  use 'nvim-lualine/lualine.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -57,6 +59,7 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
+
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -65,7 +68,36 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
+  use 'nvim-telescope/telescope-media-files.nvim'
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+  use "p00f/nvim-ts-rainbow"
+  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "numToStr/Comment.nvim" -- Easily comment stuff
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+
+  use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
+
+  -- Bufferline
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
+
+  -- Toggleterm
+  use "akinsho/toggleterm.nvim"
+
+  -- Impatient (optimizes nvim startup)
+  use 'lewis6991/impatient.nvim'
+
+  -- Indentlines (guides for indentation)
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
