@@ -47,3 +47,4 @@ o.foldexpr = 'nvim_treesitter#foldexpr()'
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
+vim.cmd "colorscheme tokyonight"
