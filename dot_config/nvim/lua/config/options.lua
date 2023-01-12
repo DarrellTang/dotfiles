@@ -40,9 +40,9 @@ o.shortmess:append "c"
 o.ignorecase = true
 o.smartcase = true
 o.incsearch = true
-o.foldenable = false
--- vim.o.foldmethod = 'expr'
--- vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+o.foldenable = true
+o.foldmethod = 'expr'
+o.foldexpr = 'nvim_treesitter#foldexpr()'
 -- vim.o.autoread = true
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
