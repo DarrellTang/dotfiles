@@ -1,3 +1,6 @@
+if [ -z "$TMUX" ]; then
+  exec tmux new-session -A -s workspace
+fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -110,7 +113,7 @@ export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:/Users/dtang/go/bin:$HOME/
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls="lsd -lh"
+alias ls="lsd -lh --group-directories-first"
 alias tmux="TERM=screen-256color-bce tmux"
 alias k="kubectl"
 alias kns="kubens"
