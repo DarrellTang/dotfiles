@@ -1,8 +1,9 @@
 local configs = require("nvim-treesitter.configs")
 configs.setup {
   ensure_installed = "all",
-  sync_install = false, 
-  ignore_install = { "" }, -- List of parsers to ignore installing
+  sync_install = true, 
+  auto_install = true,
+  ignore_install = { "t32" }, -- List of parsers to ignore installing
   autopairs = {
 		enable = true,
 	},
