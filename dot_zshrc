@@ -110,7 +110,7 @@ export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:/Users/dtang/go/bin:$HOME/
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls="exa --long --git"
+alias ls="lsd -lh"
 alias tmux="TERM=screen-256color-bce tmux"
 alias k="kubectl"
 alias kns="kubens"
