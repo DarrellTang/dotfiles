@@ -115,6 +115,7 @@ export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:/Users/dtang/go/bin:$HOME/
 
 alias ls="lsd -lh --group-directories-first"
 alias tmux="TERM=screen-256color-bce tmux"
+alias ssh="TERM=xterm-256color ssh"
 alias k="kubectl"
 alias kns="kubens"
 alias kc="kubectx"
