@@ -51,6 +51,9 @@ return packer.startup(function(use)
   use "easymotion/vim-easymotion" -- faster motions
   use 'nvim-lualine/lualine.nvim'
 
+  -- AI
+  use "dustinblackman/oatmeal.nvim"
+
   -- LSP
   use {
     "VonHeikemen/lsp-zero.nvim",
