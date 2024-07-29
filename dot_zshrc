@@ -163,3 +163,6 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 export KUBECONFIG=${HOME}/.kube/config
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 alias k=kubectl
+
+# Created by `pipx` on 2024-07-28 03:08:52
+export PATH="$PATH:/Users/darrelltang/.local/bin"
