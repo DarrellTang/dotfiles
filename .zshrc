@@ -151,7 +151,7 @@ export EDITOR="nvim"
 #}
 #source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 #PS1='$(kube_ps1)'$PS1
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+# Powerlevel10k theme is loaded by oh-my-zsh via ZSH_THEME setting
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
