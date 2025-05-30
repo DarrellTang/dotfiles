@@ -1,0 +1,40 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.zshrc: dot_zshrc
+    ~/.tmux.conf: dot_tmux.conf
+    ~/.vimrc: dot_vimrc
+    ~/.p10k.zsh: dot_p10k.zsh
+    ~/.alacritty.yml: dot_alacritty.yml
+    ~/.aerospace.toml: dot_aerospace.toml
+    ~/.config: dot_config
+
+- create:
+    - ~/downloads
+    - ~/.local/bin
+
+- shell:
+    - description: Install packages and dependencies
+      command: ./run_once_01_install_packages.sh
+    - description: Install oh-my-zsh
+      command: |
+        if [ ! -d "$HOME/.oh-my-zsh" ]; then
+          sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+        fi
+    - description: Install powerlevel10k theme
+      command: |
+        if [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+          git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+        fi
+    - description: Install zsh-syntax-highlighting plugin
+      command: |
+        if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
+          git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+        fi
+    - description: Configure Neovim
+      command: ./run_once_02_config_nvim.sh
