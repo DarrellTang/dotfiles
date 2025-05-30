@@ -27,8 +27,9 @@
           echo "This will require sudo access - you may be prompted for password"
           NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           echo "Homebrew installation completed, exit code: $?"
-          # Add brew to PATH for this session
+          # Add brew to PATH for this session and future sessions
           eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || eval "$(/usr/local/bin/brew shellenv)" 2>/dev/null
+          echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile 2>/dev/null || echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile 2>/dev/null
         else
           echo "Homebrew already installed at: $(which brew)"
         fi
