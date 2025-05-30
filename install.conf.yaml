@@ -39,7 +39,7 @@
         echo "Tapping required repositories..."
         brew tap nikitabobko/tap
         echo "Installing CLI tools..."
-        brew install coreutils curl fzf krew kubectx kubernetes-cli k9s helm nvim openssl screenfetch tfenv tldr tmux lsd yh yq fd rg jq node wget gh ollama
+        brew install coreutils curl fzf krew kubectx kubernetes-cli k9s helm nvim openssl screenfetch tfenv tldr tmux lsd yh yq fd rg jq node wget gh ollama lazygit
         echo "Installing GUI applications..."
         brew install --cask alacritty visual-studio-code slack podman-desktop obsidian font-meslo-lg-nerd-font arc karabiner-elements
         echo "Installing AeroSpace window manager..."
@@ -60,12 +60,7 @@
         if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
           git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
         fi
-    - description: Configure Neovim
+    - description: Configure Neovim with LazyVim
       command: |
-        if [ -d "$HOME/.config/nvim" ]; then
-          mv ~/.config/nvim ~/.config/nvim.backup
-        fi
-        if [ -d "$HOME/.config/nvim.backup/lua/custom" ]; then
-          cp -r ~/.config/nvim.backup/lua/custom ~/.config/nvim/lua
-        fi
-        nvim +PackerSync
+        echo "LazyVim will auto-install plugins on first startup"
+        echo "Run 'nvim' to complete the setup"
