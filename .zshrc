@@ -12,11 +12,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-if [ -d "/Users/dtang/" ]; then
-       	export ZSH="/Users/dtang/.oh-my-zsh"
-else
-	export ZSH="$HOME/.oh-my-zsh"
-fi
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -83,12 +79,12 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl colored-man-pages helm terraform golang fzf) 
+plugins=(git kubectl colored-man-pages helm terraform golang fzf zsh-syntax-highlighting) 
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:/Users/dtang/go/bin:$HOME/bin
+export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -124,14 +120,14 @@ alias kg="kubectl get"
 alias helm2="docker run -it --rm -v ~/.kube/config:/root/.kube/config -v ~/.helm:/root/.helm alpine/helm:2.16.1 "
 
 # # Load Antigen
-if [ -d "/Users/TangDa01" ]; then
+if [ -f "/usr/local/share/antigen/antigen.zsh" ]; then
 	source /usr/local/share/antigen/antigen.zsh
-else
+elif [ -f "~/antigen.zsh" ]; then
 	source ~/antigen.zsh
 fi
 
 # Load Antigen configurations
-if [ -d "/Users/TangDa01/.antigenrc" ]; then
+if [ -f "~/.antigenrc" ]; then
 	antigen init ~/.antigenrc
 fi
 
@@ -165,4 +161,4 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 alias k=kubectl
 
 # Created by `pipx` on 2024-07-28 03:08:52
-export PATH="$PATH:/Users/darrelltang/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
