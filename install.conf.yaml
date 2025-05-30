@@ -6,21 +6,29 @@
 - clean: ['~']
 
 - link:
-    ~/.zshrc: dot_zshrc
-    ~/.tmux.conf: dot_tmux.conf
-    ~/.vimrc: dot_vimrc
-    ~/.p10k.zsh: dot_p10k.zsh
-    ~/.alacritty.yml: dot_alacritty.yml
-    ~/.aerospace.toml: dot_aerospace.toml
-    ~/.config: dot_config
+    ~/.zshrc: .zshrc
+    ~/.tmux.conf: .tmux.conf
+    ~/.vimrc: .vimrc
+    ~/.p10k.zsh: .p10k.zsh
+    ~/.alacritty.yml: .alacritty.yml
+    ~/.aerospace.toml: .aerospace.toml
+    ~/.config: .config
 
 - create:
     - ~/downloads
     - ~/.local/bin
 
 - shell:
+    - description: Install Homebrew
+      command: |
+        if ! command -v brew &> /dev/null; then
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        fi
     - description: Install packages and dependencies
-      command: ./run_once_01_install_packages.sh
+      command: |
+        brew tap homebrew/cask-fonts
+        brew install coreutils curl fzf krew kubectx kubernetes-cli k9s helm nvim openssl screenfetch tfenv tldr tmux lsd yh yq fd rg jq node wget gh
+        brew install --cask alacritty visual-studio-code slack docker obsidian font-meslo-lg-nerd-font
     - description: Install oh-my-zsh
       command: |
         if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -37,4 +45,11 @@
           git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
         fi
     - description: Configure Neovim
-      command: ./run_once_02_config_nvim.sh
+      command: |
+        if [ -d "$HOME/.config/nvim" ]; then
+          mv ~/.config/nvim ~/.config/nvim.backup
+        fi
+        if [ -d "$HOME/.config/nvim.backup/lua/custom" ]; then
+          cp -r ~/.config/nvim.backup/lua/custom ~/.config/nvim/lua
+        fi
+        nvim +PackerSync

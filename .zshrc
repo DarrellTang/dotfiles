@@ -1,3 +1,6 @@
+if [ -z "$TMUX" ]; then
+  exec tmux new-session -A -s workspace
+fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -19,7 +22,7 @@ fi
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -35,7 +38,7 @@ fi
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -85,7 +88,7 @@ plugins=(git kubectl colored-man-pages helm terraform golang fzf)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH=/Users/dtang/.chefdk/gem/ruby/2.3.0/bin:$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:/Users/dtang/go/bin
+export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:/Users/dtang/go/bin:$HOME/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -110,8 +113,9 @@ export PATH=/Users/dtang/.chefdk/gem/ruby/2.3.0/bin:$PATH:$HOME/.pulumi/bin:/usr
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls="exa --long --git"
+alias ls="lsd -lh --group-directories-first"
 alias tmux="TERM=screen-256color-bce tmux"
+alias ssh="TERM=xterm-256color ssh"
 alias k="kubectl"
 alias kns="kubens"
 alias kc="kubectx"
@@ -139,7 +143,6 @@ complete -o nospace -C /usr/local/bin/vault vault
 
 export PATH="${PATH}:${HOME}/.krew/bin"
 export EDITOR="nvim"
-. <(flux completion zsh)
 
 #prompt_end() {
 #  if [[ -n $CURRENT_BG ]]; then
@@ -157,6 +160,9 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export KUBECONFIG=/home/dtang/.kube/config
+export KUBECONFIG=${HOME}/.kube/config
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 alias k=kubectl
+
+# Created by `pipx` on 2024-07-28 03:08:52
+export PATH="$PATH:/Users/darrelltang/.local/bin"
