@@ -27,8 +27,8 @@
           echo "This will require sudo access - you may be prompted for password"
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           echo "Homebrew installation completed, exit code: $?"
-          # Add brew to PATH for this session and future sessions
-          eval "$(/opt/homebrew/bin/brew shellenv)"
+          # Add brew to PATH for current session and future sessions
+          export PATH="/opt/homebrew/bin:$PATH"
           echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
         else
           echo "Homebrew already installed at: $(which brew)"
