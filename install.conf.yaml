@@ -21,14 +21,28 @@
 - shell:
     - description: Install Homebrew
       command: |
+        echo "Checking for Homebrew..."
         if ! command -v brew &> /dev/null; then
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo "Homebrew not found, installing..."
+          echo "This will require sudo access - you may be prompted for password"
+          NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo "Homebrew installation completed, exit code: $?"
+          # Add brew to PATH for this session
+          eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || eval "$(/usr/local/bin/brew shellenv)" 2>/dev/null
+        else
+          echo "Homebrew already installed at: $(which brew)"
         fi
     - description: Install packages and dependencies
       command: |
+        echo "Checking brew availability..."
+        which brew || echo "brew not in PATH"
+        echo "Tapping homebrew/cask-fonts..."
         brew tap homebrew/cask-fonts
+        echo "Installing CLI tools..."
         brew install coreutils curl fzf krew kubectx kubernetes-cli k9s helm nvim openssl screenfetch tfenv tldr tmux lsd yh yq fd rg jq node wget gh ollama
+        echo "Installing GUI applications..."
         brew install --cask alacritty visual-studio-code slack podman-desktop obsidian font-meslo-lg-nerd-font aerospace arc karabiner-elements
+        echo "Package installation completed"
     - description: Install oh-my-zsh
       command: |
         if [ ! -d "$HOME/.oh-my-zsh" ]; then
