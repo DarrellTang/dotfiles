@@ -10,7 +10,7 @@
     ~/.tmux.conf: .tmux.conf
     ~/.vimrc: .vimrc
     ~/.p10k.zsh: .p10k.zsh
-    ~/.alacritty.yml: .alacritty.yml
+    ~/.alacritty.toml: .alacritty.toml
     ~/.aerospace.toml: .aerospace.toml
     ~/.config: .config
 
