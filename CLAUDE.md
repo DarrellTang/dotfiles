@@ -16,16 +16,16 @@ This is a personal dotfiles repository managed with [dotbot](https://github.com/
 ### Key Components
 - **Shell**: Zsh with oh-my-zsh framework and powerlevel10k theme
 - **Terminal**: Alacritty with custom configuration
-- **Editor**: Neovim with extensive Lua-based configuration using Packer plugin manager
+- **Editor**: Neovim with LazyVim for modern IDE experience
 - **Terminal multiplexer**: tmux with custom configuration
 - **Window management**: AeroSpace window manager
 
 ### Neovim Configuration Structure
-- **Plugin management**: Packer.nvim with auto-installation and sync
-- **LSP**: lsp-zero.nvim with Mason for language server management
-- **Completion**: nvim-cmp with multiple sources
-- **File navigation**: Telescope and nvim-tree
-- **Git integration**: fugitive, gitsigns, and octo.nvim for GitHub
+- **Plugin management**: LazyVim with lazy.nvim for modern plugin management
+- **LSP**: Built-in LSP support with Mason for language server management
+- **Pre-configured IDE**: Comprehensive setup with sensible defaults
+- **File navigation**: Telescope, neo-tree, and other modern tools
+- **Git integration**: Built-in git support with lazygit integration
 
 ## Common Commands
 
@@ -49,12 +49,14 @@ cd ~/dotfiles
 
 ### Neovim Plugin Management
 ```bash
-# Sync plugins (auto-triggered on plugins.lua save)
-nvim +PackerSync
+# LazyVim auto-installs plugins on first startup
+nvim
 
-# Install/update plugins
-nvim +PackerInstall
-nvim +PackerUpdate
+# Update plugins (within Neovim)
+:Lazy update
+
+# Check plugin status
+:Lazy
 ```
 
 ## Installation Process
@@ -64,7 +66,7 @@ The `./install` script performs:
 2. **Shell setup**: oh-my-zsh, powerlevel10k theme, zsh-syntax-highlighting
 3. **Symlink creation**: Links all dotfiles to home directory
 4. **Directory creation**: Creates necessary directories
-5. **Neovim configuration**: Sets up nvim config and syncs plugins
+5. **Neovim configuration**: Sets up LazyVim (plugins auto-install on first run)
 
 ## Environment Setup Notes
 
