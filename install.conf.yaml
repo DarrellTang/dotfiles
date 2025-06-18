@@ -1,0 +1,71 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+
+- clean: ['~']
+
+- link:
+    ~/.zshrc: .zshrc
+    ~/.tmux.conf: .tmux.conf
+    ~/.vimrc: .vimrc
+    ~/.p10k.zsh: .p10k.zsh
+    ~/.alacritty.toml: .alacritty.toml
+    ~/.aerospace.toml: .aerospace.toml
+    ~/.config: .config
+
+- create:
+    - ~/.local/bin
+
+- shell:
+    - description: Ensure sudo access for Homebrew installation
+      command: |
+        echo "Checking sudo access (required for Homebrew installation)..."
+        sudo -v
+        echo "Sudo access confirmed"
+    - description: Install Homebrew
+      command: |
+        echo "Checking for Homebrew..."
+        if ! command -v brew &> /dev/null; then
+          echo "Homebrew not found, installing..."
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo "Homebrew installation completed, exit code: $?"
+          # Add brew to PATH for current session and future sessions
+          export PATH="/opt/homebrew/bin:$PATH"
+          echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+        else
+          echo "Homebrew already installed at: $(which brew)"
+        fi
+    - description: Install packages and dependencies
+      command: |
+        echo "Checking brew availability..."
+        which brew || echo "brew not in PATH"
+        echo "Tapping required repositories..."
+        brew tap nikitabobko/tap
+        echo "Installing CLI tools..."
+        brew install coreutils curl fzf krew kubectx kubernetes-cli k9s helm nvim openssl screenfetch tfenv tldr tmux lsd yh yq fd rg jq node wget gh ollama lazygit
+        echo "Installing GUI applications..."
+        brew install --cask alacritty visual-studio-code slack podman-desktop obsidian font-meslo-lg-nerd-font arc karabiner-elements kaleidoscope
+        echo "Installing AeroSpace window manager..."
+        brew install --cask nikitabobko/tap/aerospace
+        echo "Package installation completed"
+    - description: Install oh-my-zsh
+      command: |
+        if [ ! -d "$HOME/.oh-my-zsh" ]; then
+          sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+        fi
+    - description: Install powerlevel10k theme
+      command: |
+        if [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+          git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+        fi
+    - description: Install zsh-syntax-highlighting plugin
+      command: |
+        if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
+          git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+        fi
+    - description: Configure Neovim with LazyVim
+      command: |
+        echo "LazyVim will auto-install plugins on first startup"
+        echo "Run 'nvim' to complete the setup"
