@@ -14,9 +14,21 @@
     ~/.alacritty.toml: .alacritty.toml
     ~/.aerospace.toml: .aerospace.toml
     ~/.config: .config
+    # Claude Code configs
+    ~/.claude/CLAUDE.md: .claude/CLAUDE.md
+    ~/.claude/settings.json: .claude/settings.json
+    ~/.claude/hooks: .claude/hooks
+    ~/.claude/ccline/config.toml: .claude/ccline/config.toml
+    ~/.claude/skills/damage-control: .claude/skills/damage-control
+    ~/.claude/skills/markmap-render: .claude/skills/markmap-render
+    ~/.claude/agents: .claude/agents
+    ~/.claude/templates: .claude/templates
 
 - create:
     - ~/.local/bin
+    - ~/.claude
+    - ~/.claude/ccline
+    - ~/.claude/skills
 
 - shell:
     - description: Ensure sudo access for Homebrew installation
@@ -44,7 +56,7 @@
         echo "Tapping required repositories..."
         brew tap nikitabobko/tap
         echo "Installing CLI tools..."
-        brew install coreutils curl fzf krew kubectx kubernetes-cli k9s helm nvim openssl screenfetch tfenv tldr tmux lsd yh yq fd rg jq node wget gh ollama lazygit
+        brew install coreutils curl fzf krew kubectx kubernetes-cli k9s helm nvim openssl screenfetch tfenv tldr tmux lsd yh yq fd rg jq node wget gh ollama lazygit az
         echo "Installing GUI applications..."
         brew install --cask alacritty visual-studio-code slack podman-desktop obsidian font-meslo-lg-nerd-font arc karabiner-elements kaleidoscope
         echo "Installing AeroSpace window manager..."

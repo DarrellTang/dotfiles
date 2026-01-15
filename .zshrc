@@ -84,7 +84,7 @@ plugins=(git kubectl colored-man-pages helm terraform golang fzf zsh-syntax-high
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH=$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/bin
+export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH:$HOME/.pulumi/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -157,8 +157,11 @@ export EDITOR="nvim"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export KUBECONFIG=${HOME}/.kube/config
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.linkerd2/bin:$PATH"
 alias k=kubectl
 
 # Created by `pipx` on 2024-07-28 03:08:52
 export PATH="$PATH:$HOME/.local/bin"
+
+# direnv hook for automatic environment switching
+eval "$(direnv hook zsh)"
