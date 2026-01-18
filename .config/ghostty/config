@@ -1,0 +1,15 @@
+# Clipboard
+copy-on-select = clipboard
+clipboard-paste-protection = true
+clipboard-trim-trailing-spaces = true
+
+# Shell integration
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Font ligatures (disabled by default in 1.2.0)
+font-feature = +liga
+font-feature = +dlig
+
+# Window
+window-padding-balance = true

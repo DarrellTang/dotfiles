@@ -6,13 +6,12 @@
 
 - clean: ['~']
 
+# Cross-platform links
 - link:
-    ~/.zshrc: .zshrc
     ~/.tmux.conf: .tmux.conf
+    ~/.tmux.conf.local: .tmux.conf.local
     ~/.vimrc: .vimrc
-    ~/.p10k.zsh: .p10k.zsh
     ~/.alacritty.toml: .alacritty.toml
-    ~/.aerospace.toml: .aerospace.toml
     ~/.config: .config
     # Claude Code configs
     ~/.claude/CLAUDE.md: .claude/CLAUDE.md
@@ -23,6 +22,18 @@
     ~/.claude/skills/markmap-render: .claude/skills/markmap-render
     ~/.claude/agents: .claude/agents
     ~/.claude/templates: .claude/templates
+
+# macOS-only links
+- link:
+    ~/.zshrc:
+      path: .zshrc
+      if: '[ "$(uname)" = "Darwin" ]'
+    ~/.p10k.zsh:
+      path: .p10k.zsh
+      if: '[ "$(uname)" = "Darwin" ]'
+    ~/.aerospace.toml:
+      path: .aerospace.toml
+      if: '[ "$(uname)" = "Darwin" ]'
 
 - create:
     - ~/.local/bin
@@ -43,39 +54,68 @@
           echo "Homebrew not found, installing..."
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           echo "Homebrew installation completed, exit code: $?"
-          # Add brew to PATH for current session and future sessions
-          export PATH="/opt/homebrew/bin:$PATH"
-          echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+          # Add brew to PATH for current session
+          if [ "$(uname)" = "Darwin" ]; then
+            export PATH="/opt/homebrew/bin:$PATH"
+            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+          else
+            export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.profile
+          fi
         else
           echo "Homebrew already installed at: $(which brew)"
         fi
-    - description: Install packages and dependencies
+    - description: Install cross-platform CLI tools
       command: |
-        echo "Checking brew availability..."
-        which brew || echo "brew not in PATH"
-        echo "Tapping required repositories..."
-        brew tap nikitabobko/tap
-        echo "Installing CLI tools..."
-        brew install coreutils curl fzf krew kubectx kubernetes-cli k9s helm nvim openssl screenfetch tfenv tldr tmux lsd yh yq fd rg jq node wget gh ollama lazygit az
-        echo "Installing GUI applications..."
-        brew install --cask alacritty visual-studio-code slack podman-desktop obsidian font-meslo-lg-nerd-font arc karabiner-elements kaleidoscope
-        echo "Installing AeroSpace window manager..."
-        brew install --cask nikitabobko/tap/aerospace
-        echo "Package installation completed"
-    - description: Install oh-my-zsh
+        echo "Installing cross-platform CLI tools..."
+        brew install coreutils curl fzf krew kubectx kubernetes-cli k9s helm nvim openssl screenfetch tfenv tldr tmux lsd yh yq fd rg jq node wget gh ollama lazygit az uv
+        echo "CLI tools installation completed"
+    - description: Install ccline (Claude Code status line)
       command: |
-        if [ ! -d "$HOME/.oh-my-zsh" ]; then
-          sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+        if ! command -v ccline &> /dev/null; then
+          echo "Installing ccline..."
+          npm install -g @cometix/ccline
+          echo "ccline installation completed"
+        else
+          echo "ccline already installed at: $(which ccline)"
         fi
-    - description: Install powerlevel10k theme
+    - description: Install macOS GUI applications (skipped on Linux)
       command: |
-        if [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
-          git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+        if [ "$(uname)" = "Darwin" ]; then
+          echo "Installing macOS GUI applications..."
+          brew tap nikitabobko/tap
+          brew install --cask alacritty visual-studio-code slack podman-desktop obsidian font-meslo-lg-nerd-font arc karabiner-elements kaleidoscope
+          brew install --cask nikitabobko/tap/aerospace
+          echo "macOS GUI applications installation completed"
+        else
+          echo "Skipping macOS GUI applications on Linux"
         fi
-    - description: Install zsh-syntax-highlighting plugin
+    - description: Install oh-my-zsh (skipped on Linux)
       command: |
-        if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
-          git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+        if [ "$(uname)" = "Darwin" ]; then
+          if [ ! -d "$HOME/.oh-my-zsh" ]; then
+            sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+          fi
+        else
+          echo "Skipping oh-my-zsh on Linux"
+        fi
+    - description: Install powerlevel10k theme (skipped on Linux)
+      command: |
+        if [ "$(uname)" = "Darwin" ]; then
+          if [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+            git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+          fi
+        else
+          echo "Skipping powerlevel10k on Linux"
+        fi
+    - description: Install zsh-syntax-highlighting plugin (skipped on Linux)
+      command: |
+        if [ "$(uname)" = "Darwin" ]; then
+          if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
+            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+          fi
+        else
+          echo "Skipping zsh-syntax-highlighting on Linux"
         fi
     - description: Configure Neovim with LazyVim
       command: |
