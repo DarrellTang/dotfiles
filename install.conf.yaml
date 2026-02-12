@@ -11,6 +11,8 @@
     ~/.tmux.conf: .tmux.conf
     ~/.tmux.conf.local: .tmux.conf.local
     ~/.vimrc: .vimrc
+    ~/.p10k.zsh: .p10k.zsh
+    ~/.aerospace.toml: .aerospace.toml
     ~/.config: .config
     # Claude Code configs
     ~/.claude/CLAUDE.md: .claude/CLAUDE.md
@@ -68,7 +70,11 @@
       command: |
         echo "Installing cross-platform CLI tools..."
         brew install coreutils curl fzf krew kubectx kubernetes-cli k9s helm nvim openssl screenfetch tfenv tldr tmux lsd yh yq fd rg jq node wget gh ollama lazygit az uv
-        echo "CLI tools installation completed"
+        echo "Installing GUI applications..."
+        brew install --cask ghostty visual-studio-code slack podman-desktop obsidian font-meslo-lg-nerd-font arc karabiner-elements kaleidoscope
+        echo "Installing AeroSpace window manager..."
+        brew install --cask nikitabobko/tap/aerospace
+        echo "Installation completed"
     - description: Install ccline (Claude Code status line)
       command: |
         if ! command -v ccline &> /dev/null; then
