@@ -1,0 +1,26 @@
+{
+  "skill_name": "youtube-insight-harvest",
+  "evals": [
+    {
+      "id": 0,
+      "name": "rejection-video",
+      "prompt": "Hey, I watched this video earlier today. Can you process it for me? https://youtu.be/-FhtPUkXKO4",
+      "expected_output": "Structured summary with Frameworks, Decision Heuristics, Provocations, Open Questions sections. Should identify rejection-as-skill thesis, three dimensions (recognition/articulation/encoding), GDP-val reference, and constraint library concept.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "name": "smoothing-video",
+      "prompt": "Check out this video and tell me what's useful: https://youtu.be/LO0Ws-l6brg",
+      "expected_output": "Structured summary covering convergent architecture, jaggedness-as-harness-problem, two tiers of verifiability, and sniff-checking as surviving skill. Should pull vault context related to GSD parallel execution and constraint library.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "third-video",
+      "prompt": "I just watched this, harvest it for me: https://youtu.be/lvIF4KwRWiU?si=2uKYy1oaDOyQiPlj",
+      "expected_output": "Structured summary following the Frameworks/Heuristics/Provocations/Open Questions template. Should handle a potentially different content type and creator gracefully.",
+      "files": []
+    }
+  ]
+}

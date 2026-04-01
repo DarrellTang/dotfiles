@@ -223,7 +223,8 @@ def check_command(command: str, config: Dict[str, Any]) -> Tuple[bool, bool, str
     for zero_path in zero_access_paths:
         if is_glob_pattern(zero_path):
             # Convert glob to regex for command matching
-            glob_regex = glob_to_regex(zero_path)
+            # Add negative lookahead for word chars so *.key doesn't match .keys()
+            glob_regex = glob_to_regex(zero_path) + r'(?![a-zA-Z0-9_])'
             try:
                 if re.search(glob_regex, command, re.IGNORECASE):
                     return True, False, f"Blocked: zero-access pattern {zero_path} (no operations allowed)"

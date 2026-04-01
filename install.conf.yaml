@@ -17,12 +17,28 @@
     # Claude Code configs
     ~/.claude/CLAUDE.md: .claude/CLAUDE.md
     ~/.claude/settings.json: .claude/settings.json
+    ~/.claude/settings.local.json: .claude/settings.local.json
     ~/.claude/hooks: .claude/hooks
     ~/.claude/ccline/config.toml: .claude/ccline/config.toml
-    ~/.claude/skills/damage-control: .claude/skills/damage-control
-    ~/.claude/skills/markmap-render: .claude/skills/markmap-render
     ~/.claude/agents: .claude/agents
     ~/.claude/templates: .claude/templates
+    # Claude Code commands
+    ~/.claude/commands/harvest.md: .claude/commands/harvest.md
+    ~/.claude/commands/harvest-routing.md: .claude/commands/harvest-routing.md
+    # Claude Code custom skills
+    ~/.claude/skills/damage-control: .claude/skills/damage-control
+    ~/.claude/skills/markmap-render: .claude/skills/markmap-render
+    ~/.claude/skills/weekly-plan: .claude/skills/weekly-plan
+    ~/.claude/skills/weekly-content-brief: .claude/skills/weekly-content-brief
+    ~/.claude/skills/system-maintenance: .claude/skills/system-maintenance
+    ~/.claude/skills/download-youtube-track: .claude/skills/download-youtube-track
+    ~/.claude/skills/notebooklm: .claude/skills/notebooklm
+    ~/.claude/skills/ui-ux-pro-max: .claude/skills/ui-ux-pro-max
+    ~/.claude/skills/lbos-domain-researcher: .claude/skills/lbos-domain-researcher
+    ~/.claude/skills/tiktok-pipeline: .claude/skills/tiktok-pipeline
+    ~/.claude/skills/youtube-insight-harvest: .claude/skills/youtube-insight-harvest
+    # Marketplace skill lock
+    ~/.agents/.skill-lock.json: .agents/.skill-lock.json
 
 # macOS-only links
 - link:
@@ -41,6 +57,8 @@
     - ~/.claude
     - ~/.claude/ccline
     - ~/.claude/skills
+    - ~/.claude/commands
+    - ~/.agents
 
 - shell:
     - description: Ensure sudo access for Homebrew installation
@@ -126,3 +144,28 @@
       command: |
         echo "LazyVim will auto-install plugins on first startup"
         echo "Run 'nvim' to complete the setup"
+    - description: Install GSD (Get Shit Done) for Claude Code
+      command: |
+        if [ ! -f "$HOME/.claude/get-shit-done/VERSION" ]; then
+          echo "Installing GSD..."
+          npx get-shit-done-cc 2>/dev/null || echo "GSD install skipped (requires npm)"
+        else
+          echo "GSD already installed ($(cat $HOME/.claude/get-shit-done/VERSION))"
+        fi
+    - description: Install Claude Code tools (basic-memory, notebooklm)
+      command: |
+        if command -v uv &> /dev/null; then
+          uv tool install basic-memory 2>/dev/null || echo "basic-memory already installed"
+          uv tool install notebooklm-py 2>/dev/null || echo "notebooklm already installed"
+        else
+          echo "uv not found, skipping MCP tool installs"
+        fi
+    - description: Configure Claude MCP servers
+      command: |
+        if command -v claude &> /dev/null; then
+          claude mcp add puppeteer -s user --transport stdio -- npx -y @modelcontextprotocol/server-puppeteer 2>/dev/null || true
+          claude mcp add basic-memory -s user --transport stdio -- basic-memory mcp 2>/dev/null || true
+          echo "MCP servers configured. Note: sunsama requires manual credential setup."
+        else
+          echo "Claude CLI not found, skipping MCP setup"
+        fi

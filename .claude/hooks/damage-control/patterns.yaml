@@ -293,6 +293,7 @@ bashToolPatterns:
   # ---------------------------------------------------------------------------
   - pattern: '\bterraform\s+destroy\b'
     reason: terraform destroy (destroys all infrastructure)
+    ask: true
 
   - pattern: '\bpulumi\s+destroy\b'
     reason: pulumi destroy (destroys all resources)
@@ -380,13 +381,6 @@ bashToolPatterns:
 # Enforced by: Bash, Edit, Write tools
 # Supports glob patterns: *.pem, .env*, *-credentials.json
 zeroAccessPaths:
-  # ---------------------------------------------------------------------------
-  # ENVIRONMENT FILES (HIGH RISK - contain secrets)
-  # ---------------------------------------------------------------------------
-  - ".env"
-  - ".env.*"
-  - ".env*.local"
-  - "*.env"
 
   # ---------------------------------------------------------------------------
   # SSH KEYS AND CONFIG
@@ -415,7 +409,6 @@ zeroAccessPaths:
 
   # Kubernetes
   - "~/.kube/"
-  - "kubeconfig"
   - "*-secret.yaml"
   - "secrets.yaml"
 
@@ -435,8 +428,6 @@ zeroAccessPaths:
   # ---------------------------------------------------------------------------
   - "*.tfstate"
   - "*.tfstate.backup"
-  - ".terraform/"
-
   # ---------------------------------------------------------------------------
   # PLATFORM TOKENS (Vercel, Netlify, etc.)
   # ---------------------------------------------------------------------------
@@ -464,7 +455,22 @@ zeroAccessPaths:
   # ---------------------------------------------------------------------------
   - "dump.sql"
   - "backup.sql"
-  - "*.dump"
+  - "*.dump.sql"
+  - "*.pg_dump"
+
+# ---------------------------------------------------------------------------
+# ASK-ACCESS PATHS - Prompt for confirmation before write/edit
+# ---------------------------------------------------------------------------
+# Sensitive files that need human approval but aren't fully blocked
+# Enforced by: Edit, Write tools (triggers confirmation dialog)
+# Supports glob patterns: .env*, *.secret
+askAccessPaths:
+  # ---------------------------------------------------------------------------
+  # ENVIRONMENT FILES (contain secrets - require confirmation)
+  # ---------------------------------------------------------------------------
+  - ".env"
+  - ".env.*"
+  - ".env*.local"
 
 # ---------------------------------------------------------------------------
 # READ-ONLY PATHS - Can read, but not write/edit/delete
@@ -484,6 +490,11 @@ readOnlyPaths:
   - /root/
 
   # ---------------------------------------------------------------------------
+  # KUBERNETES CONFIG (read-only - can use but not modify)
+  # ---------------------------------------------------------------------------
+  - "kubeconfig"
+
+  # ---------------------------------------------------------------------------
   # SHELL HISTORY FILES
   # ---------------------------------------------------------------------------
   - ~/.bash_history
@@ -494,7 +505,6 @@ readOnlyPaths:
   # SHELL CONFIG FILES
   # ---------------------------------------------------------------------------
   - ~/.bashrc
-  - ~/.zshrc
   - ~/.profile
   - ~/.bash_profile
 

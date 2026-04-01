@@ -1,0 +1,182 @@
+{
+  "version": 3,
+  "skills": {
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion/SKILL.md",
+      "skillFolderHash": "666980630dc910c6b623f3bab13280af47d6995e",
+      "installedAt": "2026-03-17T04:25:30.576Z",
+      "updatedAt": "2026-03-17T04:25:30.576Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "installedAt": "2026-03-17T04:25:33.642Z",
+      "updatedAt": "2026-03-17T04:25:33.642Z"
+    },
+    "vercel-composition-patterns": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/composition-patterns/SKILL.md",
+      "skillFolderHash": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
+      "installedAt": "2026-03-18T05:25:00.779Z",
+      "updatedAt": "2026-03-18T05:25:00.779Z"
+    },
+    "deploy-to-vercel": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/deploy-to-vercel/SKILL.md",
+      "skillFolderHash": "1378aa506439f26c809dbcfc61515cbd70f93d69",
+      "installedAt": "2026-03-18T05:25:01.174Z",
+      "updatedAt": "2026-03-18T05:25:01.174Z"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "skillFolderHash": "18a9a6d17d5958d4ab10405883b80960644dbd5b",
+      "installedAt": "2026-03-18T05:25:01.466Z",
+      "updatedAt": "2026-03-18T05:25:01.466Z"
+    },
+    "vercel-react-native-skills": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/react-native-skills/SKILL.md",
+      "skillFolderHash": "8b4c6a51914e2111ab6f4f00cb81778652aa241d",
+      "installedAt": "2026-03-18T05:25:01.922Z",
+      "updatedAt": "2026-03-18T05:25:01.922Z"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "skillFolderHash": "3116f3e62dbd02b44a598b1aa690d2a8938e8f89",
+      "installedAt": "2026-03-18T05:25:02.248Z",
+      "updatedAt": "2026-03-18T05:25:02.248Z"
+    },
+    "supabase-postgres-best-practices": {
+      "source": "supabase/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/supabase/agent-skills.git",
+      "skillPath": "skills/supabase-postgres-best-practices/SKILL.md",
+      "skillFolderHash": "95fe6d29daaf88aa9bc3b505ca4defe19ceabf92",
+      "pluginName": "postgres-best-practices",
+      "installedAt": "2026-03-18T05:25:04.842Z",
+      "updatedAt": "2026-03-18T05:25:04.842Z"
+    },
+    "playwright-cli": {
+      "source": "microsoft/playwright-cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/microsoft/playwright-cli.git",
+      "skillPath": "skills/playwright-cli/SKILL.md",
+      "skillFolderHash": "a5a8823e403adc13b2488aae9968d6d92adbd2d7",
+      "installedAt": "2026-03-18T05:25:07.224Z",
+      "updatedAt": "2026-03-18T05:25:07.224Z"
+    },
+    "gws-gmail": {
+      "source": "googleworkspace/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/googleworkspace/cli.git",
+      "skillPath": "skills/gws-gmail/SKILL.md",
+      "skillFolderHash": "d19db46b035aa31d9bbec131519c09b1724dfe75",
+      "installedAt": "2026-03-25T01:04:27.068Z",
+      "updatedAt": "2026-03-25T01:04:27.068Z"
+    },
+    "firecrawl-agent": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "skills/firecrawl-agent/SKILL.md",
+      "skillFolderHash": "3e044fa055f40e21ca05e09236417adb22a7c2de",
+      "installedAt": "2026-03-27T21:40:59.222Z",
+      "updatedAt": "2026-03-27T21:40:59.222Z"
+    },
+    "firecrawl-browser": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "skills/firecrawl-browser/SKILL.md",
+      "skillFolderHash": "71e988647503d8bc00da8133d7ca5462558c586a",
+      "installedAt": "2026-03-27T21:40:59.551Z",
+      "updatedAt": "2026-03-27T21:40:59.551Z"
+    },
+    "firecrawl": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "skills/firecrawl-cli/SKILL.md",
+      "skillFolderHash": "c9653b0d9276d106234c78b72953187ede0e3e63",
+      "pluginName": "firecrawl",
+      "installedAt": "2026-03-27T21:40:59.892Z",
+      "updatedAt": "2026-03-27T21:40:59.892Z"
+    },
+    "firecrawl-crawl": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "skills/firecrawl-crawl/SKILL.md",
+      "skillFolderHash": "38776bb4cebf0d0c0609d263a83a074e21d3eddf",
+      "installedAt": "2026-03-27T21:41:00.243Z",
+      "updatedAt": "2026-03-27T21:41:00.243Z"
+    },
+    "firecrawl-download": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "skills/firecrawl-download/SKILL.md",
+      "skillFolderHash": "97201334b570f50b420d3f2ef394f60e1138694d",
+      "installedAt": "2026-03-27T21:41:00.619Z",
+      "updatedAt": "2026-03-27T21:41:00.619Z"
+    },
+    "firecrawl-map": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "skills/firecrawl-map/SKILL.md",
+      "skillFolderHash": "4165557b7602a86934e9fdd071483fdb46606f8b",
+      "installedAt": "2026-03-27T21:41:00.970Z",
+      "updatedAt": "2026-03-27T21:41:00.970Z"
+    },
+    "firecrawl-scrape": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "skills/firecrawl-scrape/SKILL.md",
+      "skillFolderHash": "546a4cf9b5c36fd4278f7bacf771aa3b1e97f5f6",
+      "installedAt": "2026-03-27T21:41:01.324Z",
+      "updatedAt": "2026-03-27T21:41:01.324Z"
+    },
+    "firecrawl-search": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "skills/firecrawl-search/SKILL.md",
+      "skillFolderHash": "7f2e5e7697caf18b66ea2e4b29417c4f7d027375",
+      "installedAt": "2026-03-27T21:41:01.809Z",
+      "updatedAt": "2026-03-27T21:41:01.809Z"
+    },
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
+      "skillPath": "skills/agent-browser/SKILL.md",
+      "skillFolderHash": "2406f5d1c14a6727a0b628bf84e7485e0f76f8de",
+      "pluginName": "agent-browser",
+      "installedAt": "2026-03-28T15:47:47.583Z",
+      "updatedAt": "2026-03-28T15:47:47.583Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  }
+}
