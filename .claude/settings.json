@@ -136,7 +136,6 @@
     "rust-analyzer-lsp@claude-plugins-official": true,
     "scheduler@claude-scheduler": true,
     "marketing-skills@marketingskills": true,
-    "superpowers@claude-plugins-official": true,
     "understand-anything@understand-anything": true
   },
   "extraKnownMarketplaces": {
@@ -144,12 +143,6 @@
       "source": {
         "source": "github",
         "repo": "jshchnz/claude-code-scheduler"
-      }
-    },
-    "superpowers-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "obra/superpowers-marketplace"
       }
     },
     "understand-anything": {

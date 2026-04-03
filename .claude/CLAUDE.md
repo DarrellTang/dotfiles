@@ -45,10 +45,7 @@ Switch with: `gh auth switch --user <account>`
 - Name files descriptively after the resource (e.g., `letsencrypt-prod-issuer.yaml`)
 
 ## Skill Development
-- Use `document-skills:skill-creator` (Anthropic) for creating/improving skills — it has eval benchmarks and description optimization
-- Use `superpowers:brainstorming` for ideation and design before skill creation
-- Use `superpowers:writing-plans` for implementation planning
-- Other superpowers skills (debugging, code review, git workflows) remain as-is
+- Use `document-skills:skill-creator` (Anthropic) for creating/improving skills, it has eval benchmarks and description optimization
 
 ## Writing From Darrell's Perspective
 - When drafting ANYTHING that comes from Darrell (client emails, proposals, SOWs, community posts, blog content, video scripts, LinkedIn posts, status reports, or any outward-facing communication), ALWAYS read the relevant voice guides from Basic Memory first:
