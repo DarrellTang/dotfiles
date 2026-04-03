@@ -33,7 +33,6 @@
     ~/.claude/skills/system-maintenance: .claude/skills/system-maintenance
     ~/.claude/skills/download-youtube-track: .claude/skills/download-youtube-track
     ~/.claude/skills/notebooklm: .claude/skills/notebooklm
-    ~/.claude/skills/ui-ux-pro-max: .claude/skills/ui-ux-pro-max
     ~/.claude/skills/lbos-domain-researcher: .claude/skills/lbos-domain-researcher
     ~/.claude/skills/tiktok-pipeline: .claude/skills/tiktok-pipeline
     ~/.claude/skills/youtube-insight-harvest: .claude/skills/youtube-insight-harvest
