@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebSearch",
+      "Bash(claude mcp:*)",
+      "mcp__context7__resolve-library-id",
+      "Bash(direnv version:*)",
+      "Bash(gcloud config:*)",
+      "Bash(gcloud iam service-accounts list:*)",
+      "Bash(chmod:*)",
+      "Bash(direnv allow:*)",
+      "Bash(direnv exec:*)",
+      "Bash(mv:*)",
+      "Bash(az account show:*)",
+      "Bash(az account list:*)",
+      "Bash(az role assignment list:*)",
+      "Bash(python3:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -94,19 +94,26 @@ def load_config() -> Dict[str, Any]:
     return config
 
 
-def check_path(file_path: str, config: Dict[str, Any]) -> Tuple[bool, str]:
-    """Check if file_path is blocked. Returns (blocked, reason)."""
+def check_path(file_path: str, config: Dict[str, Any]) -> Tuple[str, str]:
+    """Check if file_path is blocked/ask/allowed. Returns (action, reason).
+    action: 'block', 'ask', or 'allow'
+    """
     # Check zero-access paths first (no access at all)
     for zero_path in config.get("zeroAccessPaths", []):
         if match_path(file_path, zero_path):
-            return True, f"zero-access path {zero_path} (no operations allowed)"
+            return "block", f"zero-access path {zero_path} (no operations allowed)"
+
+    # Check ask-access paths (prompt for confirmation)
+    for ask_path in config.get("askAccessPaths", []):
+        if match_path(file_path, ask_path):
+            return "ask", f"sensitive path {ask_path} (requires confirmation)"
 
     # Check read-only paths (edits not allowed)
     for readonly in config.get("readOnlyPaths", []):
         if match_path(file_path, readonly):
-            return True, f"read-only path {readonly}"
+            return "block", f"read-only path {readonly}"
 
-    return False, ""
+    return "allow", ""
 
 
 def main() -> None:
@@ -131,10 +138,15 @@ def main() -> None:
         sys.exit(0)
 
     # Check if file is blocked
-    blocked, reason = check_path(file_path, config)
-    if blocked:
+    action, reason = check_path(file_path, config)
+    if action == "block":
         print(f"SECURITY: Blocked edit to {reason}: {file_path}", file=sys.stderr)
         sys.exit(2)
+    elif action == "ask":
+        result = {"decision": "ask", "message": f"Editing {reason}: {file_path}"}
+        import json as _json
+        print(_json.dumps(result))
+        sys.exit(0)
 
     sys.exit(0)
 

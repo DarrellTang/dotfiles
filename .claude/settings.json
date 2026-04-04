@@ -1,10 +1,7 @@
 {
-  "model": "opus",
-  "enabledPlugins": {
-    "document-skills@anthropic-agent-skills": true,
-    "example-skills@anthropic-agent-skills": true
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
-  "alwaysThinkingEnabled": true,
   "permissions": {
     "allow": [
       "Edit",
@@ -87,6 +84,44 @@
             "statusMessage": "Damage control: checking path"
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/darrelltang/.claude/hooks/gsd-prompt-guard.js\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/gsd-check-update.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/hooks/voice-context-loader.sh",
+            "timeout": 5,
+            "statusMessage": "Loading voice constraints"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Edit|Write|MultiEdit|Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/darrelltang/.claude/hooks/gsd-context-monitor.js\"",
+            "timeout": 10
+          }
+        ]
       }
     ]
   },
@@ -94,5 +129,30 @@
     "type": "command",
     "command": "ccline",
     "padding": 0
-  }
+  },
+  "enabledPlugins": {
+    "document-skills@anthropic-agent-skills": true,
+    "example-skills@anthropic-agent-skills": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "scheduler@claude-scheduler": true,
+    "marketing-skills@marketingskills": true,
+    "understand-anything@understand-anything": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-scheduler": {
+      "source": {
+        "source": "github",
+        "repo": "jshchnz/claude-code-scheduler"
+      }
+    },
+    "understand-anything": {
+      "source": {
+        "source": "github",
+        "repo": "Lum1104/Understand-Anything"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true
 }

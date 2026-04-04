@@ -1,1 +1,45 @@
 dot_config/nvim/plugin/*
+
+# GSD auto-managed (reinstalled by npm package)
+.claude/hooks/gsd-*.js
+.claude/hooks/gsd-*.sh
+.claude/agents/gsd-*.md
+.claude/commands/gsd/
+.claude/get-shit-done/
+.claude/gsd-file-manifest.json
+.claude/package.json
+
+# Skill ephemeral data
+.claude/skills/*/.venv/
+.claude/skills/*/last-discovery.json
+.claude/skills/*-workspace/
+
+# Claude Code runtime/state
+.claude/audio/
+.claude/backups/
+.claude/cache/
+.claude/chrome/
+.claude/debug/
+.claude/downloads/
+.claude/file-history/
+.claude/history.jsonl
+.claude/ide/
+.claude/logs/
+.claude/paste-cache/
+.claude/piper-voices/
+.claude/plans/
+.claude/plugins/
+.claude/projects/
+.claude/session-env/
+.claude/sessions/
+.claude/shell-snapshots/
+.claude/statsig/
+.claude/stats-cache.json
+.claude/mcp-needs-auth-cache.json
+.claude/tasks/
+.claude/teams/
+.claude/telemetry/
+.claude/todos/
+.claude/usage-data/
+.claude/.DS_Store
+__pycache__/

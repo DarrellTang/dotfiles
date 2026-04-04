@@ -1,0 +1,28 @@
+{
+  "skill_name": "download-youtube-track",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "download this dnb track: https://www.youtube.com/watch?v=6-cUGj05OAc",
+      "expected_output": "Downloads MP3 to ~/Music/dj/DnB/, renames to 'Sub Focus - Original Don (ft. Fireboy DML & Irah).mp3' or similar canonical form, writes ID3 tags with Artist='Sub Focus' and Title='Original Don', Genre='Drum & Bass'",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "download the checked tracks from this week's discovery list",
+      "expected_output": "Reads the discovery note at 1 Projects/DJing/Weekly Discovery/2026-03-09.md, extracts only [x] checked items, downloads each track's YouTube URL, researches and renames each with canonical Artist - Title format, writes ID3 tags, deposits in ~/Music/dj/DnB/",
+      "files": [
+        {
+          "path": "test-fixtures/weekly-discovery-2026-03-09.md",
+          "description": "Mock weekly discovery note with 4 tracks, 2 checked and 2 unchecked"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "download this track: https://www.youtube.com/watch?v=gmLVVDZQDl8",
+      "expected_output": "Downloads MP3 to ~/Music/dj/To Sort/ (no genre specified), renames to 'Camo & Krooked & Mefjus - No Tomorrow (ft. Sophie Lindinger).mp3' or similar, strips '[Official Video]' cruft, writes ID3 tags. The challenge is parsing multiple artists joined by '&' and a featured vocalist from a messy YouTube title.",
+      "files": []
+    }
+  ]
+}
