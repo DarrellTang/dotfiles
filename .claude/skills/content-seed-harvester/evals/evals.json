@@ -1,0 +1,106 @@
+{
+  "skill_name": "content-seed-harvester",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Scan Reddit for content ideas this week. I want to know what DevOps beginners are struggling with so I can make videos about it.",
+      "expected_output": "A pain-bank.md file at ~/Documents/DT Vault/1-projects/tiktok/pain-bank.md with pain signals organized by Big 5 categories, each with a one-liner pain statement, raw quote, source link, and recurrence count.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "file-exists",
+          "text": "pain-bank.md exists at ~/Documents/DT Vault/1-projects/tiktok/pain-bank.md",
+          "type": "file_exists"
+        },
+        {
+          "id": "valid-frontmatter",
+          "text": "pain-bank.md has valid YAML frontmatter with title, type, tags, and permalink fields",
+          "type": "content_check"
+        },
+        {
+          "id": "big5-coverage",
+          "text": "At least 3 of the 5 Big 5 category sections (Cost/Price, Problems/Negatives, Versus/Comparisons, Reviews, Best-of Lists) contain at least one entry",
+          "type": "content_check"
+        },
+        {
+          "id": "entry-fields",
+          "text": "Every entry has all required fields: pain statement (H3), Recurrence, Subreddit, Raw quote, Link, First seen, Fingerprint",
+          "type": "content_check"
+        },
+        {
+          "id": "pain-statement-quality",
+          "text": "Pain statements are under 15 words, written from the audience's perspective (use 'I' or 'my', not 'users' or 'people'), and capture emotional core",
+          "type": "content_check"
+        },
+        {
+          "id": "no-html",
+          "text": "No HTML tags or entities (&amp;, &lt;, etc.) appear anywhere in pain-bank.md",
+          "type": "content_check"
+        },
+        {
+          "id": "real-links",
+          "text": "All Link fields contain actual reddit.com URLs from the RSS feed, not example/placeholder URLs",
+          "type": "content_check"
+        },
+        {
+          "id": "summary-output",
+          "text": "Stdout includes a summary with new seeds count, recurrence bumps, and top pain this week",
+          "type": "output_check"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Refresh the pain bank — I ran it last week and want to see what's new and what's recurring.",
+      "expected_output": "The existing pain-bank.md is updated: new entries added, recurrence counts incremented on matching topics, no duplicate entries created. Summary shows both new seeds and recurrence bumps.",
+      "files": [
+        "~/Documents/DT Vault/1-projects/tiktok/pain-bank.md"
+      ],
+      "assertions": [
+        {
+          "id": "no-duplicates",
+          "text": "No two entries share the same fingerprint — recurring topics increment the existing entry's recurrence count instead of creating a new entry",
+          "type": "content_check"
+        },
+        {
+          "id": "recurrence-incremented",
+          "text": "At least one entry has recurrence > 1, indicating it was seen in both runs",
+          "type": "content_check"
+        },
+        {
+          "id": "also-seen-populated",
+          "text": "Entries with recurrence > 1 have an 'Also seen' field listing the additional sighting date(s)",
+          "type": "content_check"
+        },
+        {
+          "id": "new-entries-added",
+          "text": "The total number of entries is greater than the first run (new topics were found)",
+          "type": "content_check"
+        },
+        {
+          "id": "last-harvested-updated",
+          "text": "The 'Last harvested' date in the header matches today's date",
+          "type": "content_check"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need some fresh video topics for my TikTok. What are people in the DevOps world complaining about on Reddit lately?",
+      "expected_output": "The skill triggers on this indirect phrasing and produces a pain bank with classified content seeds, same as a direct invocation.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "skill-triggered",
+          "text": "The content-seed-harvester skill was invoked (fetch-reddit.sh was run and pain-bank.md was written)",
+          "type": "behavior_check"
+        },
+        {
+          "id": "output-matches-format",
+          "text": "pain-bank.md follows the same format as eval 1 — Big 5 sections, proper entry fields, valid frontmatter",
+          "type": "content_check"
+        }
+      ]
+    }
+  ]
+}
