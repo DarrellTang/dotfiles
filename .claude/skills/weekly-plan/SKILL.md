@@ -66,23 +66,26 @@ Darrell is in **America/Los_Angeles** (Pacific). Pass this timezone explicitly t
 
 ## Darrell's Daily Structure (Weekdays)
 
-When placing and ordering tasks within a day, follow this routine:
+**Source of truth:** `~/Documents/DT Vault/2-areas/lifestyle-business-os/time-energy/perfect-week-schedule.md` (from 4-day energy audit, 2026-03-26). Read this note before ordering tasks — don't duplicate it here, the energy map may evolve.
 
-| Block | Time | Activity |
-|-------|------|----------|
-| Early morning | First thing | Walk + HFD standup (concurrent) |
-| Mid-morning | After standup | IDA work block |
-| Lunch | 10:30 | Hard-coded, do not schedule over |
-| Afternoon | After lunch | Upwork/contracting work (proposals, profile, client delivery) |
+Key rules from the energy audit (apply when ordering):
 
-Order tasks on each day accordingly:
-1. HFD tasks and standups go first
-2. IDA work follows
-3. Lunch at 10:30
-4. Upwork, PatentBots, P3MS, DT Consulting, and other contracting work in the afternoon
-5. Exercise/personal tasks flex around the above
+1. **Never schedule high-value work before 10:30am.** Mornings are routine energy.
+2. **Protect 10:30-13:00 (Peak #1) for consulting/creative work.** Revenue-generating window: proposals, deep consulting delivery, strategic content (e.g. Skool paid tier work).
+3. **Batch IDA (day job) to 15:30-17:00 (Second Wind).** Neutral-energy work — don't burn peak hours on it.
+4. **Eat by 13:30.** Lunch closes Peak #1, opens Recovery Zone.
+5. **Afternoon Recovery (14:00-15:30)** is for walk, break, light admin.
+6. **Side projects (DJing, personal content) → evening only (21:00+ second wind).**
+7. **Weekends** are for content creation (TikTok filming, Skool), personal tasks, recording sessions.
 
-Weekends are for content creation (TikTok filming, Skool), personal tasks, and recording sessions.
+Typical weekday order:
+1. Morning routine (drop-offs, walk if morning) → calendar standups (IT Ops 8:30, IDA 9:30)
+2. Peak #1: consulting delivery (P3MS, PatentBots, DT Consulting), strategic content
+3. Lunch (before 13:30)
+4. Recovery: walk, HFD work, light admin
+5. Second Wind: IDA work batched here
+6. Flex: pickups, household
+7. Evening: side-project work (DnB discovery, streaming prep)
 
 **Do NOT create** standalone HFD check-in tasks — the daily HFD standup (already a recurring calendar item) covers client communication.
 
