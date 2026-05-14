@@ -1,0 +1,78 @@
+{
+  "modelRoles": {
+    "default": "openrouter/moonshotai/kimi-k2.6",
+    "slow": "openrouter/deepseek/deepseek-v4-pro",
+    "smol": "openrouter/deepseek/deepseek-v4-flash",
+    "plan": "openrouter/deepseek/deepseek-v4-pro"
+  },
+  "packages": [
+    "npm:@aliou/pi-guardrails",
+    "npm:pi-gsd",
+    "npm:pi-powerline-footer",
+    "npm:pi-markdown-preview",
+    "npm:pi-subagents",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-extmgr",
+    "npm:context-mode",
+    "npm:pi-vim",
+    "git:github.com/leblancfg/pi-ansi-themes",
+    "npm:pi-web-access"
+  ],
+  "lastChangelogVersion": "0.74.0",
+  "collapseChangelog": true,
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4-pro",
+  "hideThinkingBlock": true,
+  "showHardwareCursor": true,
+  "transport": "auto",
+  "doubleEscapeAction": "tree",
+  "theme": "ansi-dark",
+  "defaultThinkingLevel": "high",
+  "workingVibe": "cyberpunk",
+  "powerline": "custom",
+  "editorPaddingX": 1,
+  "terminal": {
+    "imageWidthCells": 80
+  },
+  "sessionDir": ".pi/sessions",
+  "bashCommandConfirmation": true,
+  "compaction": {
+    "reserveTokens": 16384
+  },
+  "subagents": {
+    "agentOverrides": {
+      "scout": {
+        "model": "openrouter/deepseek/deepseek-v4-flash",
+        "thinking": "medium"
+      },
+      "researcher": {
+        "model": "openrouter/deepseek/deepseek-v4-flash",
+        "thinking": "medium"
+      },
+      "delegate": {
+        "model": "openrouter/deepseek/deepseek-v4-flash",
+        "thinking": "medium"
+      },
+      "planner": {
+        "model": "openrouter/deepseek/deepseek-v4-pro",
+        "thinking": "high"
+      },
+      "worker": {
+        "model": "openrouter/deepseek/deepseek-v4-pro",
+        "thinking": "high"
+      },
+      "reviewer": {
+        "model": "openrouter/deepseek/deepseek-v4-pro",
+        "thinking": "high"
+      },
+      "context-builder": {
+        "model": "openrouter/deepseek/deepseek-v4-pro",
+        "thinking": "high"
+      },
+      "oracle": {
+        "model": "openrouter/deepseek/deepseek-v4-pro",
+        "thinking": "high"
+      }
+    }
+  }
+}

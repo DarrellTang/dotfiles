@@ -37,6 +37,12 @@
     ~/.claude/skills/youtube-insight-harvest: .claude/skills/youtube-insight-harvest
     # Marketplace skill lock
     ~/.agents/.skill-lock.json: .agents/.skill-lock.json
+    # Pi coding agent configs
+    ~/.pi/agent/settings.json: .pi/agent/settings.json
+    ~/.pi/agent/AGENTS.md: .pi/agent/AGENTS.md
+    ~/.pi/agent/keybindings.json: .pi/agent/keybindings.json
+    ~/.pi/agent/skills/notebooklm: .pi/agent/skills/notebooklm
+    ~/.pi/agent/themes: .pi/agent/themes
 
 # macOS-only links
 - link:
@@ -57,6 +63,8 @@
     - ~/.claude/skills
     - ~/.claude/commands
     - ~/.agents
+    - ~/.pi/agent/skills
+    - ~/.pi/agent/themes
 
 - shell:
     - description: Ensure sudo access for Homebrew installation
@@ -157,6 +165,25 @@
           uv tool install notebooklm-py 2>/dev/null || echo "notebooklm already installed"
         else
           echo "uv not found, skipping MCP tool installs"
+        fi
+    - description: Install Pi coding agent packages
+      command: |
+        if command -v pi &> /dev/null; then
+          pi install npm:pi-subagents 2>/dev/null || true
+          pi install npm:context-mode 2>/dev/null || true
+          pi install npm:pi-powerline-footer 2>/dev/null || true
+          pi install npm:pi-markdown-preview 2>/dev/null || true
+          pi install npm:pi-vim 2>/dev/null || true
+          pi install npm:pi-web-access 2>/dev/null || true
+          pi install npm:pi-interactive-shell 2>/dev/null || true
+          pi install npm:pi-gsd 2>/dev/null || true
+          pi install npm:pi-extmgr 2>/dev/null || true
+          pi install npm:pi-guardrails 2>/dev/null || true
+          pi install npm:@juicesharp/rpiv-ask-user-question 2>/dev/null || true
+          pi install git:github.com/leblancfg/pi-ansi-themes 2>/dev/null || true
+          echo "Pi packages installed"
+        else
+          echo "Pi CLI not found, skipping Pi package installs"
         fi
     - description: Configure Claude MCP servers
       command: |
