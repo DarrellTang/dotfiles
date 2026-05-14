@@ -40,6 +40,7 @@
     # Pi coding agent configs
     ~/.pi/agent/settings.json: .pi/agent/settings.json
     ~/.pi/agent/AGENTS.md: .pi/agent/AGENTS.md
+    ~/.pi/agent/SYSTEM.md: .pi/agent/SYSTEM.md
     ~/.pi/agent/keybindings.json: .pi/agent/keybindings.json
     ~/.pi/agent/skills/notebooklm: .pi/agent/skills/notebooklm
     ~/.pi/agent/themes: .pi/agent/themes
