@@ -147,6 +147,11 @@
         else
           echo "Skipping zsh-syntax-highlighting on Linux"
         fi
+    - description: Install Tmux Plugin Manager (TPM)
+      command: |
+        if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+          git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+        fi
     - description: Configure Neovim with LazyVim
       command: |
         echo "LazyVim will auto-install plugins on first startup"
