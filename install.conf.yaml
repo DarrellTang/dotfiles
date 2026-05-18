@@ -152,6 +152,11 @@
         if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
           git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
         fi
+    - description: Install tmux plugins via TPM
+      command: |
+        if [ -d "$HOME/.tmux/plugins/tpm" ] && [ ! -d "$HOME/.tmux/plugins/tmux" ]; then
+          TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux/plugins/" "$HOME/.tmux/plugins/tpm/bin/install_plugins"
+        fi
     - description: Configure Neovim with LazyVim
       command: |
         echo "LazyVim will auto-install plugins on first startup"

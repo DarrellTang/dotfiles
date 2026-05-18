@@ -1,5 +1,20 @@
 dot_config/nvim/plugin/*
 
+# macOS
+.DS_Store
+**/.DS_Store
+
+# ~/.config is symlinked into this repo — these subdirs are runtime state
+# (some contain credentials) and must never be committed.
+.config/configstore/
+.config/containers/
+.config/flameshot/
+.config/gh/
+.config/git/
+.config/github-copilot/
+.config/karabiner/
+.config/qmd/
+
 # GSD auto-managed (reinstalled by npm package)
 .claude/hooks/gsd-*.js
 .claude/hooks/gsd-*.sh
