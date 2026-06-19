@@ -11,6 +11,10 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Fix Claude Code TUI rendering corruption/flicker in tmux: use alternate-screen
+# rendering + synchronized output (DECSET 2026) instead of full-buffer redraws.
+export CLAUDE_CODE_NO_FLICKER=1
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
