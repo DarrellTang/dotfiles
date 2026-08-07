@@ -29,6 +29,34 @@ Switch with: `gh auth switch --user <account>`
 - Optimize for token efficiency: minimize redundancy, respect context limits
 - Keep READMEs concise (~50 lines max unless complex)
 
+<subagent_routing>
+At the start of every task, perform this routing check before substantial discovery or implementation. Subagents preserve the parent context and add independent judgment.
+
+<delegate_when>
+Use one or more subagents when any condition applies:
+- Codebase discovery is broad: more than three files, more than one subsystem, or the location of the change is unclear.
+- External documentation, APIs, ecosystem behavior, or current web research will inform the answer or implementation.
+- Implementation is likely to touch multiple files or has distinct research, planning, implementation, and verification phases.
+- The task involves architecture, scope, risk, security, ambiguous tradeoffs, or context drift.
+- Logs, command output, or source material are large enough to consume substantial parent context.
+- An independent review or fresh-context verification would materially reduce mistakes.
+</delegate_when>
+
+<stay_in_parent_when>
+Keep the task in the parent only when all are true: the work is localized, the solution is obvious, risk is low, and delegation would take longer than completing and validating it directly. An explicit user request for subagents always overrides this exception.
+</stay_in_parent_when>
+
+<execution>
+- The parent coordinates: define focused assignments, synthesize results, resolve conflicts, and perform final validation.
+- Start independent read-only tasks in parallel and prefer async runs when their results are not immediately blocking.
+- Use one writer in a worktree at a time. Parallelize writers only in isolated worktrees or on disjoint artifacts with no shared files.
+- Ask subagents for concise findings with evidence, file paths, commands, risks, and recommended next steps rather than raw transcripts.
+- For non-trivial implementation, use the matching flow rather than invoking every role mechanically: `scout` and/or `researcher` → `planner` when design is needed → one `worker` → fresh-context `reviewer`.
+- Use `context-builder` when discovery must become a durable implementation handoff. Use `oracle` before committing to high-impact architecture, scope, risk, or recovery decisions.
+- When subagent tooling is unavailable, continue in the parent instead of stalling.
+</execution>
+</subagent_routing>
+
 ## Documentation
 - Tables, diagrams, and lists preferred over prose
 - Scannable over narrative
