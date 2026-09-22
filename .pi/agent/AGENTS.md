@@ -18,6 +18,7 @@ Two accounts are configured via `gh auth`. Always verify before creating repos o
 Switch with: `gh auth switch --user <account>`
 
 ## Pull Requests
+- PR titles, descriptions, and comments are outward-facing writing from Darrell: follow `3-resources/writing-style-guide-inter-teammate-voice.md` (thread register)
 - Keep PR descriptions brief (1-3 bullet points max)
 - No lengthy summaries or test plans
 - Skip the Claude Code attribution footer
@@ -76,11 +77,11 @@ Keep the task in the parent only when all are true: the work is localized, the s
 - Use `document-skills:skill-creator` (Anthropic) for creating/improving skills, it has eval benchmarks and description optimization
 
 ## Writing From Darrell's Perspective
-- When drafting ANYTHING that comes from Darrell (client emails, proposals, SOWs, community posts, blog content, video scripts, LinkedIn posts, status reports, or any outward-facing communication), ALWAYS read the relevant voice guides from the vault first:
+- When drafting ANYTHING that comes from Darrell (client emails, proposals, SOWs, community posts, blog content, video scripts, LinkedIn posts, status reports, PR titles/descriptions/comments, commit messages, issue bodies, or any outward-facing communication), ALWAYS read the relevant voice guides from the vault first:
   - `3-resources/darrells-voice-guide.md` — master voice reference
   - `3-resources/writing-style-guide-anti-ai-voice.md` — banned words/phrases, anti-AI patterns
   - `3-resources/writing-style-guide-inter-teammate-voice.md` — peer-to-peer comms (Slack, Trello, PR comments, email threads with teammates/clients)
-- For teammate/client messages (Slack, Trello, email threads): read the inter-teammate voice guide, not the content voice guide
+- For teammate/client messages (Slack, Teams, Trello, email threads, PRs, issues): read the inter-teammate voice guide, not the content voice guide
 - For client emails and consulting deliverables: professional but not corporate, concrete over vague
 - For content: follow the full voice guide including audience rules and three-tier test
 
