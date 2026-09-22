@@ -13,7 +13,7 @@ Two accounts are configured via `gh auth`. Always verify before creating repos o
 | Account | Use for | Orgs |
 |---------|---------|------|
 | `DarrellTang` | Personal projects, homelab, content | `darrelldoesdevops`, `tanghome-us` |
-| `darrell-tang-consulting` | Client/consulting work, PatentBots | `darrelldoesdevops`, `OppX-AI` |
+| `darrell-tang-consulting` | Client/consulting work, PatentBots, private skill repos | `darrelldoesdevops`, `OppX-AI`, `nexara-pacific` |
 
 Switch with: `gh auth switch --user <account>`
 
